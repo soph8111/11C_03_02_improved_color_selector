@@ -10,29 +10,29 @@ function getColor() {
 
 function delegatorColor(event) {
   const rgbObject = convertHexToRgb(event.target.value);
-  document.querySelector("#RGB").innerHTML = showRgb(rgbObject);
+  showRgb(rgbObject);
   const cssColor = convertRgbToCss(rgbObject);
-  document.querySelector("#color_box").style.background = showBox(cssColor);
+  showBox(cssColor);
   const hexStr = convertRgbToHex(rgbObject);
-  document.querySelector("#HEX").innerHTML = showHex(hexStr);
+  showHex(hexStr);
   const hslStr = convertRgbToHsl(rgbObject.r, rgbObject.g, rgbObject.b);
-  document.querySelector("#HSL").innerHTML = showHsl(hslStr);
+  showHsl(hslStr);
 }
 
 function showBox(css) {
-  return css;
+  document.querySelector("#color_box").style.background = css;
 }
 
 function showHex(hex) {
-  return `HEX: ${hex}`;
+  document.querySelector("#HEX").textContent = `HEX: ${hex}`;
 }
 
 function showRgb(object) {
-  return `RGB: ${object.r} ${object.g} ${object.b}`;
+  document.querySelector("#RGB").textContent = `RGB: ${object.r}, ${object.g}, ${object.b}`;
 }
 
 function showHsl(hex) {
-  return `HSL: ${hex.h} ${hex.s}% ${hex.l}%`;
+  document.querySelector("#HSL").textContent = `HSL: ${hex.h} ${hex.s}% ${hex.l}%`;
 }
 
 // CONVERTERS
